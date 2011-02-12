@@ -6,9 +6,9 @@ Jeweler::Tasks.new do |gem|
   gem.name     = "EM-Throttled Queue"
   gem.homepage = "http://github.com/Burgestrand/em-throttled_queue"
   
-  gem.license  = "Ruby License" # TODO: copy/paste
+  gem.license  = "X11 License"
   
-  gem.summary = ""
+  gem.summary = "A rate-limited Queue for EventMachine"
   gem.authors = ["Kim Burgestrand"]
   gem.email   = "kim@burgestrand.se"
   
