@@ -8,6 +8,7 @@ GEM
       git (>= 1.2.5)
       rake
     rake (0.8.7)
+    rdiscount (1.6.8)
     yard (0.6.4)
 
 PLATFORMS
@@ -17,4 +18,5 @@ DEPENDENCIES
   eventmachine
   jeweler (~> 1.5)
   rake
+  rdiscount
   yard
