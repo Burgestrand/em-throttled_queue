@@ -1,0 +1,4 @@
+.bundle
+pkg
+*.gem
+.DS_Store
