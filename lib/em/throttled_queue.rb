@@ -60,6 +60,7 @@ module EventMachine
           # next_tick to avoid locking up caller in a dequeuing loop
           EM::next_tick method(:scheduled_dequeue)
         end
+        self
       end
       
       # Dequeue as many items as ossible.
@@ -109,4 +110,4 @@ if $0 == __FILE__ then
   else
     abort "this is a bug!"
   end
-end  
+end
