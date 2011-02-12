@@ -75,7 +75,6 @@ module EventMachine
 end
 
 if $0 == __FILE__ then
-  require 'continuation'
   
   ticks = 0
   deqs  = 0
