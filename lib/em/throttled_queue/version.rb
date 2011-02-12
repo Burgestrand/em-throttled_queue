@@ -1,10 +1,7 @@
 module EventMachine
   class ThrottledQueue
-    module Version
-      MAJOR  = 0
-      MINOR  = 0
-      PATCH  = 0
-      STRING = [MAJOR, MINOR, PATCH].join('.')
-    end
+    # Gem version in the format X.Y.Z
+    # @see http://semver.org/
+    VERSION = [0, 0, 0].join('.')
   end
 end
