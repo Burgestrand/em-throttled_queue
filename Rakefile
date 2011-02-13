@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'jeweler'
 require './lib/em/throttled_queue/version'
 Jeweler::Tasks.new do |gem|
-  gem.name     = "EM-Throttled Queue"
+  gem.name     = "em-throttled_queue"
   gem.homepage = "http://github.com/Burgestrand/em-throttled_queue"
   
   gem.license  = "X11 License"
@@ -13,6 +13,7 @@ Jeweler::Tasks.new do |gem|
   gem.email   = "kim@burgestrand.se"
   
   gem.version = EventMachine::ThrottledQueue::VERSION
+  gem.required_ruby_version = '~> 1.9'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
