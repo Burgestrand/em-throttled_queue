@@ -1,11 +1,12 @@
 # EM-Throttled_Queue is a throttled queue (surprise, surprise!)
 [ThrottledQueue](http://rdoc.info/github/Burgestrand/em-throttled_queue/master/EventMachine/ThrottledQueue) is just like an [EM::Queue](http://rdoc.info/github/eventmachine/eventmachine/master/EventMachine/Queue), but will pop items off itself at a pace specified by you!
 
-Version v1.0.0 and v1.0.1 has an unintentional flaw (result of coding while tired) and should not be used. v1.0.2 is coming as soon as issue #2 is resolved. They have been yanked from rubygems.
+*NOTE*: Version v1.0.0 and v1.0.1 has an unintentional flaw (result of coding while tired) and should not be used.
 
-Example
--------
-
+Usage
+-----
+    require 'em/throttled_queue'
+    
     # Example code that will pop off 2 items in total within a period of
     # one second. The other items are not popped because of throttle.
     EM::run do
@@ -23,6 +24,8 @@ Example
     # Output:
     # 1
     # 2
+
+Gem is on rubygems.org, so installation is a mere `gem install em-throttled_queue`.
 
 What problem does EM-Throttled_Queue solve?
 -------------------------------------------
