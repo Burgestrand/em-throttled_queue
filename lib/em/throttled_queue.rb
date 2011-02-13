@@ -1,5 +1,6 @@
 # coding: utf-8
 require 'eventmachine'
+require 'em/throttled_queue/version'
 
 # @see https://github.com/eventmachine/eventmachine
 module EventMachine

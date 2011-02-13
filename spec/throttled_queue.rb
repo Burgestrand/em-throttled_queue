@@ -54,4 +54,9 @@ describe EM::ThrottledQueue do
     
     ticker.call(ticker)
   end
+  
+  it "should load the version" do
+    defined?(EM::ThrottledQueue::VERSION).wont_be_nil
+    EM::stop
+  end
 end
