@@ -26,4 +26,5 @@ Rake::TestTask.new(:spec) do |t|
   t.pattern = 'spec/*.rb'
 end
 
+task :release => ['gemspec:release', 'git:release', 'gemcutter:release']
 task :default => :spec
