@@ -1,5 +1,5 @@
 # EM-Throttled_Queue is a throttled queue (surprise, surprise!)
-`EM::ThrottledQueue` is just like an [EM::Queue](http://rdoc.info/github/eventmachine/eventmachine/master/EventMachine/Queue), but will pop items off itself at a pace specified by you!
+{EventMachine::ThrottledQueue} is just like an [EM::Queue](http://rdoc.info/github/eventmachine/eventmachine/master/EventMachine/Queue), but will pop items off itself at a pace specified by you!
 
 Example
 -------
