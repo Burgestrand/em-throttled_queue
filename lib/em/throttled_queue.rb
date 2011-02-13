@@ -10,6 +10,18 @@ module EventMachine
   class ThrottledQueue < Queue
     # Create a new rate-limited queue.
     # 
+    # The queue is allowed to process `limit` items after every `tick`,
+    # meaning that the optional `delay` argument controls how many items
+    # are popped off within a given timeframe.
+    # 
+    # Continuously popping items off a queue with a `limit` of 1 and a
+    # `delay` of 0.1 will allow a maximum of 25 items to pop within a
+    # 2.5 second period.
+    # 
+    # However, continuously popping items off a queue with a `limit` of
+    # 2 and a `delay` of *1* will allow a maximum of 20 items to pop
+    # within a 2.5 second period.
+    # 
     # @example
     # 
     #   EM::ThrottledQueue.new(0.5)
@@ -34,6 +46,7 @@ module EventMachine
     # Pop an item off the queue as soon as conditions allow, passing it
     # to the given block.
     #
+    # @note The given block is executed within the reactor thread.
     # @yield [item] callback to execute when item is popped off
     # @yieldparam item an item from the queue
     # @return (see #interact)
@@ -44,6 +57,7 @@ module EventMachine
     
     # Push items onto the queue (from within the reactor thread) asap.
     # 
+    # @note This call is thread-safe.
     # @param [item, …] items items to be pushed onto the queue
     # @return (see #interact)
     def push(*items)
