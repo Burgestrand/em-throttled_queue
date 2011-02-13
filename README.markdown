@@ -1,6 +1,8 @@
 # EM-Throttled_Queue is a throttled queue (surprise, surprise!)
 {EventMachine::ThrottledQueue} is just like an [EM::Queue](http://rdoc.info/github/eventmachine/eventmachine/master/EventMachine/Queue), but will pop items off itself at a pace specified by you!
 
+Version v1.0.0 and v1.0.1 has an unintentional flaw (result of coding while tired) and should not be used. v1.0.2 is coming as soon as issue #2 is resolved. They have been yanked from rubygems.
+
 Example
 -------
 
