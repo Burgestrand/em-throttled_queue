@@ -9,8 +9,7 @@ Example
     # Example code that will pop off 2 items in total within a period of
     # one second. The other items are not popped because of throttle.
     EM::run do
-      # Create a queue that will pop off maximum of 2 items per second,
-      # with a refill-limit of 1 second.
+      # Create a queue that will pop off maximum of 2 items per second.
       queue = EM::ThrottledQueue.new(2)
   
       queue.push 1 # you can push one item at a time
