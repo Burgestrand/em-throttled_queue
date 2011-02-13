@@ -20,7 +20,7 @@ module EventMachine
     # 
     # @param [Numeric] limit maximum of dequeues every “tick”
     # @param [Numeric] delay number of seconds between ticks (default: 1)
-    def initialize(limit = 0, delay = 1)
+    def initialize(limit, delay = 1)
       @limit   = limit
       @credits = 0
       @ticker  = EM::add_periodic_timer(delay) do
