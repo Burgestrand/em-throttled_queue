@@ -15,7 +15,7 @@ end
 
 describe EM::ThrottledQueue do
   it "should pop items in FIFO order" do
-    queue = EM::ThrottledQueue.new(1, 0.2)
+    queue = EM::ThrottledQueue.new(1)
     pushed_items = [1, 2, 3, 4]
     popped_items = []
     queue.push(*pushed_items)
@@ -36,12 +36,12 @@ describe EM::ThrottledQueue do
     ticks = 0
     deqs  = 0
     
-    queue = EM::ThrottledQueue.new(1, 0.2) # 5 deqs/s
+    queue = EM::ThrottledQueue.new(10) # 10 deqs/s
     queue.push(*(1..1000).to_a)
     queue.size.must_equal 1000
     
-    EM::add_timer(2) do
-      (5..10).must_include deqs
+    EM::add_timer(0.5) do
+      deqs.must_equal 10
       (ticks > 100).must_equal true # need good margin
       EM::stop
     end
@@ -53,6 +53,19 @@ describe EM::ThrottledQueue do
     end
     
     ticker.call(ticker)
+  end
+  
+  it "should not build up credits over time" do
+    deqs = 0
+    
+    queue = EM::ThrottledQueue.new(10) # 10 deqs/s
+    queue.push(*(1..1000).to_a)
+    
+    EM::add_timer(3) do
+      # Oh this is bad… test tied to implementation details!
+      queue.instance_variable_get("@credits").must_equal 10
+      EM::stop
+    end
   end
   
   it "should load the version" do

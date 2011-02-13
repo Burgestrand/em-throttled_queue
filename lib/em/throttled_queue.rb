@@ -11,33 +11,16 @@ module EventMachine
   class ThrottledQueue < Queue
     # Create a new rate-limited queue.
     # 
-    # The queue is allowed to process `limit` items after every `tick`,
-    # meaning that the optional `delay` argument controls how many items
-    # are popped off within a given timeframe.
-    # 
-    # Continuously popping items off a queue with a `limit` of 1 and a
-    # `delay` of 0.1 will allow a maximum of 25 items to pop within a
-    # 2.5 second period.
-    # 
-    # However, continuously popping items off a queue with a `limit` of
-    # 2 and a `delay` of *1* will allow a maximum of 20 items to pop
-    # within a 2.5 second period.
-    # 
     # @example
     # 
-    #   EM::ThrottledQueue.new(0.5)
-    #   # => dequeues 0.5 times every second (1 time every 2 seconds)
+    #   EM::ThrottledQueue.new(10)
+    #   # => allows maximum 10 deqs every second
     # 
-    #   EM::ThrottledQueue.new(10, 0.2)
-    #   # => dequeues 10 times every 0.2 seconds
-    # 
-    # @param [Numeric] limit maximum of dequeues every “tick”
-    # @param [Numeric] delay number of seconds between ticks (default: 1)
-    def initialize(limit, delay = 1)
-      @limit   = limit
-      @credits = 0
-      @ticker  = EM::add_periodic_timer(delay) do
-        @credits += @limit
+    # @param [Fixnum] maximum of dequeues every second
+    def initialize(limit)
+      @credits = @limit = limit.to_i
+      @ticker  = EM::add_periodic_timer(1) do
+        @credits = @limit
         scheduled_dequeue
       end
       
