@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{em-throttled_queue}
-  s.version = "1.0.2"
+  s.version = "1.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kim Burgestrand"]
-  s.date = %q{2011-02-13}
+  s.date = %q{2011-02-20}
   s.email = %q{kim@burgestrand.se}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "README.markdown",
     "Rakefile",
     "em-throttled_queue.gemspec",
+    "lib/em-throttled_queue.rb",
     "lib/em/throttled_queue.rb",
     "lib/em/throttled_queue/version.rb",
     "lib/eventmachine/throttled_queue.rb",
