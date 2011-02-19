@@ -6,7 +6,7 @@ class << MiniTest::Spec
   def it_enhanced(*args, &block)
     it_original(*args) do
       EM::run(&block)
-    end
+    end unless block.nil?
   end
   
   alias_method :it_original, :it
