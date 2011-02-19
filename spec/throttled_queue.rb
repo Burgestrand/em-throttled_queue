@@ -1,4 +1,4 @@
-require 'em/throttled_queue'
+require 'em-throttled_queue'
 require 'minitest/autorun'
 require 'minitest/spec'
 
