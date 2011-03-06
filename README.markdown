@@ -27,12 +27,6 @@ Usage
 
 Gem is on rubygems.org, so installation is a mere `gem install em-throttled_queue`.
 
-What problem does EM-Throttled_Queue solve?
--------------------------------------------
-At [radiofy](http://radiofy.se/) we consume a lot of external services. As we are rebuilding our internal structures we will be using EventMachine for the consumption of said services. Some of them have an applied rate-limit that will punish you if you don’t restrain how many queries you execute.
-
-As a result, we need to call our blocks of code within the allowed rate-limit. For example, the [Spotify Metadata API](http://developer.spotify.com/en/metadata-api/overview/) allow a maximum of 10 requests per second, and if exceeded will force you to wait 10 seconds (essentially losing 90 reqs/10 seconds). EM::ThrottledQueue will allow us to easily limit how many calls we make per second to their API.
-
 How do I contribute?
 --------------------
 Fork, add tests (important!), add your code and send a pull request. If you wish to report an issue, please use the GitHub issue tracker. I can also be contacted by mail (visible on [my GitHub user page](http://github.com/Burgestrand)).
