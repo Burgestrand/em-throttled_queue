@@ -1,3 +1,9 @@
+# THIS LIBRARY HAS BEEN ABANDONED!
+
+If somebody wants to take on the project and make something useful of it, go on ahead. I, personally, will not be doing *any* more work on this.
+
+---
+
 # EM-Throttled_Queue is a throttled queue (surprise, surprise!)
 [ThrottledQueue](http://rdoc.info/github/Burgestrand/em-throttled_queue/master/EventMachine/ThrottledQueue) is just like an [EM::Queue](http://rdoc.info/github/eventmachine/eventmachine/master/EventMachine/Queue), but will pop items off itself at a pace specified by you!
 
