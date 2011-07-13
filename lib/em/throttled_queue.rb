@@ -15,11 +15,15 @@ module EventMachine
     # 
     #   EM::ThrottledQueue.new(10)
     #   # => allows maximum 10 deqs every second
+    #
+    #   EM::ThrottledQueue.new(5, 10)
+    #   # => allows maximum 5 deqs every 10 seconds
     # 
-    # @param [Fixnum] maximum of dequeues every second
-    def initialize(limit)
+    # @param [Fixnum] maximum of dequeues every +refresh_interval+
+    # @param [Fixnum] how many seconds between each refresh of tokens. Default: 1 (second)
+    def initialize(limit, refresh_interval = 1)
       @credits = @limit = limit.to_i
-      @ticker  = EM::add_periodic_timer(1) do
+      @ticker  = EM::add_periodic_timer(refresh_interval) do
         @credits = @limit
         scheduled_dequeue
       end
