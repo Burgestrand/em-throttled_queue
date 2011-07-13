@@ -54,7 +54,27 @@ describe EM::ThrottledQueue do
     
     ticker.call(ticker)
   end
-  
+
+  it "handles slower refresh rates than every second" do
+    deqs = 0
+
+    queue = EM::ThrottledQueue.new(1, 2) # 1 requests per 2 seconds, meaning 2 seconds between requests
+    queue.push(*(1..100))
+    queue.size.must_equal 100
+
+    EM::add_timer(1.5) do
+      deqs.must_equal 1
+      EM::stop
+    end
+
+    ticker = proc do |me|
+      queue.pop { deqs += 1 }
+      EM::next_tick { me.call(me) }
+    end
+
+    ticker.call(ticker)
+  end
+
   it "should not build up credits over time" do
     deqs = 0
     
