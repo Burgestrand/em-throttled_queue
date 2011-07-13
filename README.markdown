@@ -3,6 +3,10 @@
 
 **NOTE**: Version v1.0.0 and v1.0.1 has an unintentional flaw, and should not be used.
 
+**NOTE**: I personally won’t be doing any development on this library, but I will accept
+pull requests. If you want take over maintenance of this library for further development,
+please do contact me.
+
 Usage
 -----
 
