@@ -9,7 +9,7 @@ please do contact me.
 
 Contributors
 ------------
-- [Laust Rud Jacobsen](https://github.com/rud) (<http://object.io>)
+- [Laust Rud Jacobsen](https://github.com/rud) (<laust@object.io> - <http://object.io>)
 
 Usage
 -----
