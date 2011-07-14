@@ -7,6 +7,10 @@
 pull requests. If you want take over maintenance of this library for further development,
 please do contact me.
 
+Contributors
+------------
+- [Laust Rud Jacobsen](https://github.com/rud) (<http://object.io>)
+
 Usage
 -----
 
