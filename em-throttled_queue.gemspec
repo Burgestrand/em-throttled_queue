@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
 
   gem.version     = EventMachine::ThrottledQueue::VERSION
   gem.platform    = Gem::Platform::RUBY
-  gem.required_ruby_version = '~> 1.9'
+  gem.required_ruby_version = '>= 1.9'
 
   gem.add_dependency 'eventmachine'
   gem.add_development_dependency 'yard'
