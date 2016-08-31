@@ -49,7 +49,7 @@ module EventMachine
     # @param [item, …] items items to be pushed onto the queue
     # @return (see #interact)
     def push(*items)
-      interact { @items.push(*items) }
+      interact { @sink.push(*items) }
     end
     
     private
@@ -66,13 +66,19 @@ module EventMachine
         self
       end
       
-      # Dequeue as many items as ossible.
+      # Dequeue as many items as possible.
       # 
       # @return [ThrottledQueue]
       def scheduled_dequeue
-        until @credits < 1 || @items.empty? || @popq.empty?
-          @credits -= 1
-          @popq.shift.call @items.shift
+        unless @popq.empty?
+          if @drain.empty?
+            @drain = @sink
+            @sink = []
+          end
+          until @credits < 1 || @drain.empty? || @popq.empty?
+            @credits -= 1
+            @popq.shift.call @drain.shift
+          end
         end
         self
       end
